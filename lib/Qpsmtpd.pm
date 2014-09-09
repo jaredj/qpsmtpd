@@ -5,8 +5,6 @@ use vars qw($VERSION $TraceLevel $Spool_dir $Size_threshold);
 use Sys::Hostname;
 use Qpsmtpd::Constants;
 
-#use DashProfiler;
-
 $VERSION = "0.94";
 
 my $git;
@@ -25,8 +23,6 @@ my %defaults = (
 my $_config_cache = {};
 my %config_dir_memo;
 
-#DashProfiler->add_profile("qpsmtpd");
-#my $SAMPLER = DashProfiler->prepare("qpsmtpd");
 my $LOGGING_LOADED = 0;
 
 sub _restart {
@@ -45,10 +41,7 @@ sub _restart {
     }
 }
 
-sub DESTROY {
-
-    #warn $_ for DashProfiler->profile_as_text("qpsmtpd");
-}
+sub DESTROY { }
 
 sub version { $VERSION . ($git ? "/$git" : "") }
 
